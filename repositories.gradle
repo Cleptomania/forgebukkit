@@ -1,0 +1,12 @@
+// Add any additional repositories for your dependencies here.
+
+repositories {
+    maven {
+        name = "ThermosLibs"
+        url = "https://github.com/juanmuscaria/maven/raw/master/ThermosLibs"
+        content {
+            includeGroup "pw.prok"
+        }
+    }
+    mavenLocal()
+}
