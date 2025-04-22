@@ -233,7 +233,7 @@ public class CrucibleCommand extends Command {
             world = FMLCommonHandler.instance().getMinecraftServerInstance().worldServers[0];
         }
 
-        List<Chunk> chunks = new ArrayList<>(world.theChunkProviderServer.loadedChunkHashMap_KC.rawVanilla().values());
+        List<Chunk> chunks = new ArrayList<>(world.theChunkProviderServer.loadedChunks);
         chunks.sort(Collections.reverseOrder(Comparator.comparingInt(c -> c.chunkTileEntityMap.size())));
         for (int i = 0; i < Math.min(chunks.size(), 20); i++) {
             Chunk chunk = chunks.get(i);

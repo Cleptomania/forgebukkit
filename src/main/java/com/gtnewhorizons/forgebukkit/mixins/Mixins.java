@@ -12,11 +12,25 @@ import com.gtnewhorizon.gtnhlib.mixin.TargetedMod;
 
 public enum Mixins implements IMixins {
 
-    EXAMPLE_EARLY(new MixinBuilder("An example early mixin").addTargetedMod(TargetedMod.VANILLA)
+    BUKKIT_SNBT(new MixinBuilder("Mixins to NBT tags to add new crucible_toString interface method").addTargetedMod(TargetedMod.VANILLA)
         .setSide(Side.BOTH)
         .setPhase(Phase.EARLY)
         .setApplyIf(() -> true)
-        .addMixinClasses());
+        .addMixinClasses(
+            "nbt.MixinNBTBase",
+            "nbt.MixinNBTTagByte",
+            "nbt.MixinNBTTagByteArray",
+            "nbt.MixinNBTTagCompound",
+            "nbt.MixinNBTTagDouble",
+            "nbt.MixinNBTTagEnd",
+            "nbt.MixinNBTTagFloat",
+            "nbt.MixinNBTTagInt",
+            "nbt.MixinNBTTagIntArray",
+            "nbt.MixinNBTTagList",
+            "nbt.MixinNBTTagLong",
+            "nbt.MixinNBTTagShort",
+            "nbt.MixinNBTTagString"
+        ));
 
     private final List<String> mixinClasses;
     private final Supplier<Boolean> applyIf;
